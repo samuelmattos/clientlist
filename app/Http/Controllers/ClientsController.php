@@ -63,7 +63,7 @@ class ClientsController extends Controller
      */
     public function edit($id)
     {
-        $client = \App\Client::find($id);
+        $client = \App\Client::findOrFail($id);
         return view('clients.edit', compact('client'));
     }
 
@@ -90,6 +90,7 @@ class ClientsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \App\Client::findOrFail($id)->delete();
+        return redirect('/clients');
     }
 }
