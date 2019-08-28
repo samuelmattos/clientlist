@@ -2,14 +2,24 @@
 
 @section('content')
     <h1>Clients</h1>
-    <ul>
-        @foreach ($clients as $item)
-            <li>{{$item->name}}</li>
-            <li>{{$item->expire_license}}</li>
-        @endforeach
-    </ul>
-  
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-         Alias iste quidem voluptatem non eaque, ut quas aliquam nisi aperiam
-         repudiandae odit, modi quaerat error, eum reprehenderit maiores. Recusandae, impedit veritatis?</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Expire License</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($clients as $item)
+                <tr>
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->expire_license}}</td>
+                    <td><a name="" id="" class="btn btn-primary" href="clients/{{$item->id}}/edit" role="button">Editar</a></td>
+                </tr>                  
+            @endforeach            
+        </tbody>
+    </table>
 @endsection

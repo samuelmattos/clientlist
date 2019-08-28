@@ -63,7 +63,8 @@ class ClientsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client = \App\Client::find($id);
+        return view('clients.edit', compact('client'));
     }
 
     /**
@@ -75,7 +76,10 @@ class ClientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = \App\Client::find($id);
+        $client->name = request('name');
+        $client->save();
+        return redirect('/clients');
     }
 
     /**
