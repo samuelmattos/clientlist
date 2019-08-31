@@ -7,7 +7,8 @@
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" id="name" class="form-control" placeholder="Name" aria-describedby="helpId" value={{ $client->name }}>
+            <input type="text" name="name" id="name" class="form-control" required
+                    placeholder="Name" aria-describedby="helpId" value={{ $client->name }}>
             <small id="helpId" class="text-muted">Name of client</small>
         </div>
         <input name="" id="" class="btn btn-primary" type="submit" value="Edit">        

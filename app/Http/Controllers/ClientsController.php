@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Client as Client;
 
 class ClientsController extends Controller
 {
@@ -14,7 +15,7 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        $clients = \App\Client::all();
+        $clients = Client::all();
         return view('clients.index', ['clients' => $clients]);
     }
 
@@ -36,10 +37,8 @@ class ClientsController extends Controller
      */
     public function store()
     {
-        $name = request('name');
-        $client = new \App\Client;
-        $client->name = $name;
-        $client->save();
+        request()->validate(['name' => 'required']);
+        Client::create(request(['name']));
         return redirect('/clients');
     }
 
@@ -50,9 +49,9 @@ class ClientsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Client $client)
     {
-        //
+        return view('clients.show', compact('client'));
     }
 
     /**
@@ -61,9 +60,8 @@ class ClientsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Client $client)
     {
-        $client = \App\Client::findOrFail($id);
         return view('clients.edit', compact('client'));
     }
 
@@ -74,11 +72,9 @@ class ClientsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Client $client)
     {
-        $client = \App\Client::find($id);
-        $client->name = request('name');
-        $client->save();
+        $client->update(request(['name']));
         return redirect('/clients');
     }
 
@@ -88,9 +84,9 @@ class ClientsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
-        \App\Client::findOrFail($id)->delete();
+        $client->delete();
         return redirect('/clients');
     }
 }
