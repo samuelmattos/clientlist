@@ -9,4 +9,9 @@ class Client extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function serves()
+    {
+        return $this->hasMany(Serve::class);
+    }
 }
