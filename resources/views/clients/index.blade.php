@@ -16,7 +16,7 @@
             @foreach ($clients as $item)
                 <tr>
                     <td>{{$item->id}}</td>
-                    <td>{{$item->name}}</td>
+                    <td><a href="clients/{{$item->id}}"> {{$item->name}}</a></td>
                     <td>{{$item->expire_license}}</td>
                     <td><a name="" id="" class="btn btn-primary" href="clients/{{$item->id}}/edit" role="button">Editar</a></td>
                 </tr>                  
