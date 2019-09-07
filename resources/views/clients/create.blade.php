@@ -1,6 +1,7 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
+<div class="row justify-content-center">
     <h1>Create a new Clients</h1>
     <form action="/clients" method="POST">
         @csrf
@@ -23,4 +24,5 @@
             </ul>
         </div>
     @endif
+</div>
 @endsection

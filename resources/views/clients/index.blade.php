@@ -1,8 +1,10 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
     <h1>Clients</h1>
-    <a name="" id="" class="btn btn-primary" href="/clients/create" role="button">Create</a>
+    <a name="" id="" class="btn btn-success" href="/clients/create" role="button">Create</a>
+    <div class="row justify-content-center">    
     <table class="table">
         <thead>
             <tr>
@@ -23,4 +25,6 @@
             @endforeach            
         </tbody>
     </table>
+    </div>
+</div>
 @endsection

@@ -1,11 +1,9 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
-    <h1>Hello</h1>
-    <ul>
-        @foreach ($tasks as $task)
-            <li>{{$task}}</li>
-        @endforeach
-    </ul>
-    
+<div class="container">
+    <div class="row justify-content-center">
+    <h1>Hello</h1>    
+    </div>
+</div>
 @endsection

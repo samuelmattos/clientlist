@@ -1,6 +1,7 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
     <h1>Edit a Client</h1>    
     <form action="/clients/{{$client->id}}}" method="POST">
         @method('PATCH')
@@ -19,4 +20,5 @@
         {{ csrf_field() }}
         <input name="" id="" class="btn btn-danger" type="submit" value="Delete">
     </form>
+</div>
 @endsection
