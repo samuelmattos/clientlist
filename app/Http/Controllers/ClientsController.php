@@ -38,7 +38,11 @@ class ClientsController extends Controller
     public function store()
     {
         request()->validate(['name' => 'required']);
-        Client::create(request(['name']));
+        Client::create([
+            'name' => request('name'),
+            'actived' => true,
+            'expire_license' => date('Y-m-d')
+            ]);
         return redirect('/clients');
     }
 
