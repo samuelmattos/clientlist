@@ -2,17 +2,18 @@
 
 @section('content')
 <div class="container">
-<div class="row justify-content-center">
     <h1>Create a new Clients</h1>
-</div>
-<div class="row justify-content-center">    
     <form action="/clients" method="POST">
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" class="form-control" required
                   placeholder="Name" aria-describedby="helpId" >
-            <small id="helpId" class="text-muted">Name of client</small>
+        </div>
+        <div class="form-group">
+            <label for="expire_license">Date</label>
+            <input type="date" name="expire_license" id="expire_license" class="form-control" required
+                  aria-describedby="helpId" >
         </div>
         <input name="" id="" class="btn btn-primary" type="submit" value="Create Client">        
     </form>
@@ -27,6 +28,5 @@
             </ul>
         </div>
     @endif
-</div>
 </div>
 @endsection

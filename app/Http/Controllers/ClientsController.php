@@ -41,7 +41,7 @@ class ClientsController extends Controller
         Client::create([
             'name' => request('name'),
             'actived' => true,
-            'expire_license' => date('Y-m-d')
+            'expire_license' => request('expire_license')
             ]);
         return redirect('/clients');
     }
@@ -78,7 +78,7 @@ class ClientsController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        $client->update(request(['name']));
+        $client->update(request(['name', 'expire_license']));
         return redirect('/clients');
     }
 
