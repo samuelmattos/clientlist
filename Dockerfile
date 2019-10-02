@@ -13,7 +13,7 @@ RUN apt-get upgrade -y
     RUN apt-get -y install apt-utils nano wget ssh apache2 php tzdata --fix-missing 
  
 # Install important libraries 
-    RUN apt-get -y install build-essential git curl zip php-curl --fix-missing 
+    # RUN apt-get -y install build-essential git curl zip php-curl --fix-missing 
  
 # Composer 
     RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer 

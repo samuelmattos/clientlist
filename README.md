@@ -29,7 +29,7 @@ php artisan db:seed --class=UsersTableSeeder
 php artisan serve
 ```
 5. Se preferir utilize o dockerfile
-```
+```sh
 docker image build -t clientlist .
 docker container run -p 85:83 --name clientlist clientlist
 ```
