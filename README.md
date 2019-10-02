@@ -25,11 +25,11 @@ Password: clientlist
 php artisan db:seed --class=UsersTableSeeder
 ````
 4. Para iniciar o servidor execute o comando abaixo:
-```sh
+````sh
 php artisan serve
-```
+````
 5. Se preferir utilize o dockerfile
-```sh
+````sh
 docker image build -t clientlist .
 docker container run -p 85:83 --name clientlist clientlist
-```
+````
